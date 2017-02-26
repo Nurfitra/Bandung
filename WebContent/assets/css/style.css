@@ -1,0 +1,46 @@
+
+@font-face {
+    font-family:openlight;
+	src: url('openlight.ttf');
+}
+@font-face {
+    font-family:open;
+	src: url('open.ttf');
+}
+@font-face {
+    font-family:museo;
+	src: url('museo.otf');
+}
+.row p a{
+color:#fff
+}
+body {
+font-family:museo;
+}
+.class-content{
+	margin-top:30px;
+}
+.class-content  a {
+color:#29d846;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 80px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-image: linear-gradient(to top,#fff 0,#f8f8f8 100%);
+  color: #000;
+  border-top: 1px solid #e7e7e7;
+}
+.footer a{
+	color: #999;
+}
