@@ -4,6 +4,8 @@
 <%@ page import="net.bandung.bean.PostBean"%>
 <%@ page import="net.bandung.dao.PostDao"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*"%>
 <html>
 
 <title>Bandung | Beranda</title>
@@ -53,9 +55,13 @@
 			 {
 			 System.out.println(user.getId());*/
 			for (PostBean post : postList) {
+				Blob image = post.getGambar();
+				byte[] imgData = null; 
+				imgData = image.getBytes(1,(int)image.length());
+				String imgDataBase64=new String(Base64.getEncoder().encode(imgData));
 		%>
 		<div class="col-md-4">
-			<img src="assets/img/seaworld.jpg" class="img-responsive" style="min-height:275px" >
+			<img src="data:image/gif;base64,<%=imgDataBase64%>" class="img-responsive" style="min-height:275px" >
 			<h3 style="background:#eee;margin-top:0px;padding:10px;font-weight:900;margin-bottom:0px;padding-bottom:0px;border-top:2px solid #29d846;font-family:open"><strong></strong><%=post.getJudul()%></h3>
 			<p  style="background:#eee;margin-top:0px;padding:10px">
 			<%=post.getIsi().replaceAll("\\<[^>]*>","").substring(0,150)%></p>

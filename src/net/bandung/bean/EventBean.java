@@ -1,11 +1,13 @@
 package net.bandung.bean;
 
+import java.sql.Blob;
+
 public class EventBean {
 
     private int eventid;
     private String nama_event;
     private String deskripsi;
-    private String gambar;
+    private java.sql.Blob gambar;
         
     
     public int getEid() {
@@ -26,10 +28,10 @@ public class EventBean {
 	public void setIsi(String deskripsi) {
 		this.deskripsi = deskripsi;
 	}	
-	public String getGambar() {
+	public Blob getGambar() {
 		return gambar;
 	}
-	public void setGambar(String gambar) {
+	public void setGambar(Blob gambar) {
 		this.gambar = gambar;
 	}
 }

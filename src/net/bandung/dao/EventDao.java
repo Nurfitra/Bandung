@@ -73,7 +73,8 @@ public class EventDao {
                 EventBean Eventbean = new EventBean();
                 Eventbean.setEid(rs.getInt("eventid"));
                 Eventbean.setEvent(rs.getString("nama_event"));
-                Eventbean.setIsi(rs.getString("deskripsi"));                             
+                Eventbean.setIsi(rs.getString("deskripsi"));   
+                Eventbean.setGambar(rs.getBlob("gambar"));                                
                 Events.add(Eventbean);
             }
         } catch (SQLException e) {
@@ -94,7 +95,8 @@ public class EventDao {
             if (rs.next()) {
             	EventBean.setEid(rs.getInt("eventid"));
             	EventBean.setEvent(rs.getString("nama_event"));
-            	EventBean.setIsi(rs.getString("deskripsi"));                           
+            	EventBean.setIsi(rs.getString("deskripsi"));  
+                EventBean.setGambar(rs.getBlob("gambar"));                                
             }
         } catch (SQLException e) {
             e.printStackTrace();

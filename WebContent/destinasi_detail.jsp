@@ -4,6 +4,8 @@
 <%@ page import="net.bandung.bean.PostBean"%>
 <%@ page import="net.bandung.dao.PostDao"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.*"%>
 <html>
 
 
@@ -27,8 +29,12 @@
 	PostDao dao = new PostDao();
 	String uid = request.getParameter("destinasiId");
  	if (!((uid) == null)) {
- 		int id = Integer.parseInt(uid);
+ 	int id = Integer.parseInt(uid);
 	post = dao.getPostById(id);
+	Blob image = post.getGambar();
+	byte[] imgData = null; 
+	imgData = image.getBytes(1,(int)image.length());
+	String imgDataBase64=new String(Base64.getEncoder().encode(imgData));
 %>
 <jsp:include page="template/navbar.jsp" />
 <div class="class-content">
@@ -36,8 +42,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h1><%=post.getJudul()%></h1><hr>
-			<img src="assets/img/seaworld.jpg" class="img-responsive" style="max-width:275px" >
-			<p  style=";margin-top:0px;padding:10px"><%=post.getIsi()%></p>
+			<img src="data:image/gif;base64,<%=imgDataBase64%>" class="img-responsive" style="float:left;max-width:540px;padding-right:10px;padding-bottom:5px;" >
+			<%=post.getIsi()%>
 		</div>		
 	<%
  	}else{

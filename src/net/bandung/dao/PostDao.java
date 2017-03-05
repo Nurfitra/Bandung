@@ -59,7 +59,7 @@ public class PostDao {
                     .prepareStatement(sql);
             ps.setString(1, postbean.getJudul());
             ps.setString(2, postbean.getIsi());  
-            ps.setString(3,postbean.getGambar());    
+            ps.setBlob(3,postbean.getGambar());    
             ps.setString(4,postbean.getKategori());              
             ps.setInt(5, postbean.getPid());
             ps.executeUpdate();            
@@ -80,7 +80,7 @@ public class PostDao {
                 postbean.setPid(rs.getInt("postid"));
                 postbean.setJudul(rs.getString("judul"));
                 postbean.setIsi(rs.getString("isi")); 
-                postbean.setGambar(rs.getString("gambar"));    
+                postbean.setGambar(rs.getBlob("gambar"));    
                 postbean.setKategori(rs.getString("kategori"));  
                 postbean.setAuthor(rs.getString("author"));  
                 postbean.setDate(rs.getString("post_date"));                            
@@ -104,7 +104,7 @@ public class PostDao {
                 postbean.setPid(rs.getInt("postid"));
                 postbean.setJudul(rs.getString("judul"));
                 postbean.setIsi(rs.getString("isi")); 
-                postbean.setGambar(rs.getString("gambar"));    
+                postbean.setGambar(rs.getBlob("gambar"));    
                 postbean.setKategori(rs.getString("kategori"));  
                 postbean.setAuthor(rs.getString("author"));  
                 postbean.setDate(rs.getString("post_date"));                                
@@ -130,7 +130,7 @@ public class PostDao {
                 postbean.setPid(rs.getInt("postid"));
                 postbean.setJudul(rs.getString("judul"));
                 postbean.setIsi(rs.getString("isi")); 
-                postbean.setGambar(rs.getString("gambar"));    
+                postbean.setGambar(rs.getBlob("gambar"));    
                 postbean.setKategori(rs.getString("kategori"));  
                 postbean.setAuthor(rs.getString("author"));  
                 postbean.setDate(rs.getString("post_date"));                            
@@ -151,7 +151,7 @@ public class PostDao {
                 postbean.setPid(rs.getInt("postid"));
                 postbean.setJudul(rs.getString("judul"));
                 postbean.setIsi(rs.getString("isi")); 
-                postbean.setGambar(rs.getString("gambar"));    
+                postbean.setGambar(rs.getBlob("gambar"));    
                 postbean.setKategori(rs.getString("kategori"));  
                 postbean.setAuthor(rs.getString("author"));  
                 postbean.setDate(rs.getString("post_date"));                             

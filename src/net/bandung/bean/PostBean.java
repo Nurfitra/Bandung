@@ -2,12 +2,14 @@ package net.bandung.bean;
 
 import java.text.SimpleDateFormat;
 
+import com.mysql.jdbc.Blob;
+
 public class PostBean {
 
     private int pid;
     private String judul;
     private String isi;
-    private String gambar;
+    private java.sql.Blob gambar;
     private String kategori;
     private String author;
     private String post_date;
@@ -31,12 +33,13 @@ public class PostBean {
 	public void setIsi(String isi) {
 		this.isi = isi;
 	}	
-	public String getGambar() {
+	public java.sql.Blob getGambar() {
 		return gambar;
 	}
-	public void setGambar(String gambar) {
-		this.gambar = gambar;
-	}	
+	public void setGambar(java.sql.Blob blob) {
+		this.gambar = blob;
+		
+	}
 	public String getKategori() {
 		return kategori;
 	}
